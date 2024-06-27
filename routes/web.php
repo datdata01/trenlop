@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// get POST =>Method HTTP
+
+
+
+Route::get('/test',function(){echo "test";});
+Route::get('/list-user',[UserController::class,'listuser']);
+// Slug
+Route::get('/get-user/{id}/{name?}',[UserController::class,'getUser']);
+// Param
+Route::get('/update-user',[UserController::class,'updateuser']);
+// ?id=1
+Route::get('/thong-tin-sv/{mssv}/{name}/{class}/{phone}/{address}',[UserController::class,'thongtinsv']);
