@@ -41,4 +41,5 @@ Route::group(['prefix'=>'product','as'=>'product.'],function(){
     Route::post('checkProduct',[ProductController::class,'checkProduct'])->name('checkProduct');
     Route::get('returnCheck',[ProductController::class,'returnProduct'])->name('returnCheck');
 
+    
 });
