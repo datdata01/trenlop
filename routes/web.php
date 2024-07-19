@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UsersController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,3 +45,11 @@ Route::group(['prefix'=>'product','as'=>'product.'],function(){
 
     
 });
+
+Route::group(['prefix'=>'users','as'=>'users.'],function(){
+    Route::get('listUsers',[UsersController::class,'listUsers'])->name('listUsers');
+
+});
+
+
+Route::get('test',[UsersController::class,'test']);
