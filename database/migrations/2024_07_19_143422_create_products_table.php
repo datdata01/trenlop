@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('product',function(Blueprint $table){
-            $table->fropColumn(['view']);
+        Schema::create('products', function (Blueprint $table) {
+            $table->increments('product_id');
+            $table->string('name',20);
+            $table->string('description',500)->nullable();
+            $table->float('price',10, 2)->default(800.02);
+            $table->timestamps();
         });
     }
 
@@ -21,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('product',function(Blueprint $table){
-            $table->integer('view');
-        });
+        Schema::dropIfExists('products');
     }
 };

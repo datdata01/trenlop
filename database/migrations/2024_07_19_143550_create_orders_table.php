@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('log', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('content_log');
+        Schema::create('orders', function (Blueprint $table) {
+            $table->increments('order_id');
+            $table->unsignedInteger('user_id'); // Thêm cột category_id
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->float('totalPrice',10, 2);
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('log');
+        Schema::dropIfExists('orders');
     }
 };
