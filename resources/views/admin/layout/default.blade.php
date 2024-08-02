@@ -7,6 +7,7 @@
     <title>Document</title>
     <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
+    @stack('style')
 </head>
 
 <body>
@@ -39,6 +40,7 @@
 
 
     <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+    @stack('script')
 </body>
 
 </html>
